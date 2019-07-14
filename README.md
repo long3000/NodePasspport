@@ -47,3 +47,24 @@ app.listen(PORT, console.log(`Server started on port ${PORT}`));
  ## app.js
  ## package.json
  ```
+
+ Install MongoDB on MacOS 
+ ```
+ $ brew install mongodb  
+ $ sudo mkdir -p /data/db  
+ $ sudo chown -R `id -un` /data/db  
+ ```
+
+ ```
+ $ mongo 10.0.0.25:27017
+ > use nodeauth
+ > db.createCollection('users');
+ > db.users.insert({name: 'Nate Nguyen', email:'nate.nguyen88@gmail.com', username: 'admin', password: '1234'});
+ > db.users.find().pretty()
+ ```
+ <img src="https://snag.gy/2A0gVi.jpg">
+
+**TO modify any of these fields, we can do the following:**
+ ```
+> db.users.update({username: 'admin'}, {$set:{email:'nate@email.com'}});
+ ```
