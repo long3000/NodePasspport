@@ -4,12 +4,14 @@ const expressLayouts = require('express-ejs-layouts');
 const app = express();
 
 // EJS
-app.unsubscribe(expressLayouts);
-app.set('view engine','ejs');
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
 
 // Routers
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+
+app.use(express.static("public"));
 
 const PORT = process.env.PORT || 8080;
 
